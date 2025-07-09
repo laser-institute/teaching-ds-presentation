@@ -1,0 +1,19 @@
+```css
+/* Additional styling for presentation elements */
+.columns {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.stat-box {
+  background: #f8f9fa;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px 0;
+}

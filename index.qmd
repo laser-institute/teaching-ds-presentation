@@ -1,0 +1,213 @@
+---
+title: "Teaching Data Science to Educational Researchers"
+subtitle: "Evidence-Based Strategies for Effective Pedagogy"
+author: "Based on research by K. Bret Staudt Willet & Joshua M. Rosenberg"
+date: "Journal of Formative Design in Learning, Dec. 2023"
+format:
+  revealjs:
+    theme: default
+    transition: slide
+    background-transition: fade
+    highlight-style: github
+    slideNumber: true
+    chalkboard: true
+    footer: "Teaching Data Science to Educational Researchers"
+    css: styles.css
+---
+
+## The Educational Data Context
+
+Educational researchers increasingly encounter data from:
+
+- Learning Management Systems (LMS)
+- Online and distance education platforms  
+- AI-powered learning tools
+
+**Result:** Growing demand for Educational Data Science (EDS) skills
+
+---
+
+## Student Barriers
+
+Educational researchers face challenges:
+
+- **Ethical considerations:** Privacy and consent
+- **Access limitations:** Computing resources 
+- **Technical concerns:** Coding anxiety
+
+::: {.callout-note}
+These barriers require thoughtful instructional design
+:::
+
+---
+
+## Research Questions
+
+**RQ #1:** What backgrounds, motivations, and fears do students bring?
+
+**RQ #2:** What pedagogical approaches build confidence and competence?
+
+---
+
+## Study Overview
+
+- **44 doctoral students** in education
+- **2 one-day workshops** using R and RStudio Cloud
+- **Pre/post surveys** + qualitative analysis
+
+---
+
+## Student Assets
+
+::: {.columns}
+::: {.column width="50%"}
+**59%** had relevant degree
+
+**57%** had work experience
+:::
+::: {.column width="50%"}
+**77%** wanted new skills
+
+**75%** wanted job-relevant skills
+:::
+:::
+
+::: {.callout-note}
+Students aren't blank slates—build on existing knowledge
+:::
+
+---
+
+## Technical Anxiety is Real
+
+**84%** cited technical factors as primary concern
+
+> "I really do not understand the statistical stuff. I might as well be reading Russian."
+
+> "Some of the programs, such as R, are a little intimidating."
+
+---
+
+## Confidence Growth
+
+::: {.columns}
+::: {.column width="33%"}
+**3.35**  
+Pre-workshop
+:::
+::: {.column width="33%"}
+**4.65**  
+Post-workshop  
+:::
+::: {.column width="33%"}
+**+1.30**  
+Increase
+:::
+:::
+
+Statistically significant improvement on 7-point scale
+
+::: {.callout-warning}
+**Note:** Troubleshooting confidence didn't improve
+:::
+
+---
+
+## What Worked: Pedagogy
+
+**66%** cited pedagogical factors as workshop strength
+
+**Key strategies:**
+- Patience and flexibility  
+- Collaborative coding  
+- Normalizing errors  
+- Plain language explanations  
+
+---
+
+## Student Feedback
+
+> "It was helpful to practice... I really appreciated when you explained what the code was saying by reading it out loud."
+
+> "[The instructor] made a 'bunch of numbers' actually mean something."
+
+---
+
+## Five Evidence-Based Guidelines
+
+Research-based recommendations for instruction
+
+---
+
+## Guideline 1: Build on Prior Knowledge
+
+Connect computational methods to existing research experience
+
+**Avoid** assumptions about starting knowledge
+
+---
+
+## Guideline 2: Use Educational Data  
+
+Start with familiar contexts:
+- Student assessment data
+- Survey responses  
+- Grade books
+
+**Not** generic datasets from other fields
+
+---
+
+## Guideline 3: Connect to Research Practice
+
+Explicitly link techniques to:
+- Educational research questions
+- Students' work contexts
+- Real applications
+
+---
+
+## Guideline 4: Create Supportive Environments
+
+- Normalize debugging process
+- Model problem-solving  
+- Maintain patience with difficulties
+- Make errors learning opportunities
+
+---
+
+## Guideline 5: Balance Instruction & Practice
+
+Structure lessons with:
+1. **Demonstration**
+2. **Collaborative work** 
+3. **Individual application**
+
+Avoid extended lectures
+
+---
+
+## Key Takeaways
+
+- Students bring valuable experience
+- Technical anxiety is addressable
+- **Pedagogy matters more than software**
+- Confidence can grow substantially
+
+---
+
+## Discussion
+
+**Questions for reflection:**
+
+- What resonates with your teaching experience?
+- Which strategies will you try first?  
+- What additional challenges do you face?
+
+---
+
+## References
+
+Willet, K. B. S., & Rosenberg, J. M. (2023). The Design and Effects of Educational Data Science Workshops for Early Career Researchers. *Journal of Formative Design in Learning, 7*(2).
+
+[https://doi.org/10.1007/s41686-023-00083-7](https://doi.org/10.1007/s41686-023-00083-7)

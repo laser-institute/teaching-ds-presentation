@@ -1,0 +1,62 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+.reveal .stat-box {
+  background: #f8f9fa;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+}
+
+.reveal .stat-box strong {
+  font-size: 2.5rem;
+  color: #3498db;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.reveal .guidelines h3 {
+  color: #2c3e50;
+  border-left: 4px solid #3498db;
+  padding-left: 15px;
+  margin-top: 25px;
+}
+
+.reveal .r-fit-text {
+  text-align: center;
+  font-size: 4rem !important;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.stat-box {
+  background: #f8f9fa;
+  border: 2px solid #3498db;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.guidelines h3 {
+  color: #2c3e50;
+  border-left: 4px solid #3498db;
+  padding-left: 15px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.guidelines p {
+  margin-left: 19px;
+  margin-bottom: 20px;
+}
+
+.r-fit-text {
+  text-align: center;
+  font-size: 4rem !important;
+  color: #3498db;
+  font-weight: bold;
+}
