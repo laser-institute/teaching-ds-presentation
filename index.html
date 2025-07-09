@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Data Science Workshops</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .slide h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        .slide h2 {
+            font-size: 2rem;
+            color: #34495e;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .slide h3 {
+            font-size: 1.5rem;
+            color: #2980b9;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .slide p, .slide li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .slide ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .slide li {
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .journal {
+            font-size: 1rem;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #2c3e50;
+            background: #ecf0f1;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        .guidelines {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .guideline {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .guideline h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .control-btn:hover {
+            background: #2980b9;
+        }
+
+        .control-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #3498db;
+            transition: width 0.3s;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            .slide h1 {
+                font-size: 2rem;
+            }
+            
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>Teaching Data Science to Educational Researchers</h1>
+            <p class="subtitle">Evidence-Based Strategies for Effective Pedagogy</p>
+            <p class="authors">Based on research by K. Bret Staudt Willet (Florida State University) & Joshua M. Rosenberg (University of Tennessee)</p>
+            <p class="journal">Journal of Formative Design in Learning, Dec. 2023</p>
+        </div>
+
+        <!-- Slide 2: Opportunity & Challenge -->
+        <div class="slide">
+            <h2>Understanding Your Students: The Learning Context</h2>
+            <div class="two-column">
+                <div>
+                    <h3>The Educational Data Landscape</h3>
+                    <p>Educational researchers increasingly encounter data from:</p>
+                    <ul>
+                        <li>Learning Management Systems (LMS)</li>
+                        <li>Online and distance education platforms</li>
+                        <li>AI-powered learning tools</li>
+                    </ul>
+                    <p>This has created demand for <strong>Educational Data Science (EDS)</strong> skills to analyze these data sources for research and practice.</p>
+                </div>
+                <div>
+                    <h3>Barriers to Learning Data Science</h3>
+                    <p>Educational researchers face several challenges:</p>
+                    <ul>
+                        <li><strong>Ethical considerations:</strong> Navigating consent and privacy requirements</li>
+                        <li><strong>Access limitations:</strong> Computing resources and restricted datasets</li>
+                        <li><strong>Technical concerns:</strong> Anxiety about coding and statistical software</li>
+                    </ul>
+                    <div class="highlight">
+                        <strong>For instructors:</strong> These barriers present pedagogical challenges that require thoughtful instructional design.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Research Questions -->
+        <div class="slide">
+            <h2>What We Studied: Key Questions for Instructors</h2>
+            <p>This research explored how to effectively teach data science to educational researchers. As instructors, we need to understand:</p>
+            <div class="highlight">
+                <h3>RQ #1: Who are your students?</h3>
+                <p>How do educational researchers situate themselves concerning data science? What backgrounds, motivations, and fears do they bring to your classroom?</p>
+            </div>
+            <div class="highlight">
+                <h3>RQ #2: What teaching strategies work?</h3>
+                <p>How can instructional design help educational researchers overcome barriers to learning data science? What pedagogical approaches build confidence and competence?</p>
+            </div>
+            <div style="margin-top: 30px; padding: 20px; background: #e8f4f8; border-radius: 10px;">
+                <strong>For You as Instructors:</strong> These findings will help you design more effective learning experiences for your students.
+            </div>
+        </div>
+
+        <!-- Slide 4: Study at a Glance -->
+        <div class="slide">
+            <h2>The Study at a Glance</h2>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">1-day EDS Workshops</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">44</div>
+                    <div class="stat-label">Doctoral Students</div>
+                </div>
+            </div>
+            <ul>
+                <li><strong>Who:</strong> 44 doctoral students in education, primarily full-time educators and administrators</li>
+                <li><strong>How:</strong> Hybrid online format using R and RStudio Cloud, with pre- and post-workshop surveys</li>
+                <li><strong>Analysis:</strong> Quantitative analysis of survey ratings and qualitative thematic analysis of open-ended responses</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Finding 1 -->
+        <div class="slide">
+            <h2>Student Backgrounds: Building on Existing Knowledge</h2>
+            <p>Participants brought relevant experience to the workshops:</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">59%</div>
+                    <div class="stat-label">Had prior relevant degree</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">57%</div>
+                    <div class="stat-label">Had relevant work experience</div>
+                </div>
+            </div>
+            <h3>Student motivations:</h3>
+            <ul>
+                <li>77% sought to develop new analytical skills</li>
+                <li>75% wanted skills applicable to their current work</li>
+            </ul>
+            <div class="highlight">
+                <strong>Implication for instruction:</strong> Students are not novices to research or data analysis. Effective instruction connects new computational methods to their existing knowledge of educational research and statistical concepts.
+            </div>
+        </div>
+
+        <!-- Slide 6: Finding 2 -->
+        <div class="slide">
+            <h2>Technical Anxiety as a Learning Barrier</h2>
+            <p>Despite relevant backgrounds, participants reported significant concerns about technical aspects:</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">84%</div>
+                    <div class="stat-label">Cited technical factors as primary concern</div>
+                </div>
+            </div>
+            <h3>Representative student comments:</h3>
+            <div class="quote">
+                "I really do not understand the statistical stuff. I might as well be reading Russian."
+            </div>
+            <div class="quote">
+                "Some of the programs, such as R, are a little intimidating."
+            </div>
+            <div class="highlight">
+                <strong>Instructional consideration:</strong> While students' concerns center on technical content, pedagogical approaches can address these anxieties by creating supportive learning environments that normalize the learning process.
+            </div>
+        </div>
+
+        <!-- Slide 7: Finding 3 -->
+        <div class="slide">
+            <h2>Measured Learning Outcomes: Confidence Growth</h2>
+            <p>Pre- and post-workshop surveys measured changes in student confidence (7-point scale):</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">3.35</div>
+                    <div class="stat-label">Pre-workshop confidence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.65</div>
+                    <div class="stat-label">Post-workshop confidence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+1.30</div>
+                    <div class="stat-label">Mean increase</div>
+                </div>
+            </div>
+            <p>This represents a statistically significant and educationally meaningful improvement.</p>
+            <div class="highlight">
+                <strong>Note:</strong> Students showed no significant change in confidence about troubleshooting or "getting unstuck," suggesting that while technical confidence increased, problem-solving skills require additional instructional support.
+            </div>
+        </div>
+
+        <!-- Slide 8: Secret Sauce -->
+        <div class="slide">
+            <h2>Effective Instructional Approaches</h2>
+            <p>Students identified pedagogical factors as most beneficial to their learning:</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">66%</div>
+                    <div class="stat-label">Cited pedagogical factors as workshop strength</div>
+                </div>
+            </div>
+            <h3>Specific teaching strategies that supported learning:</h3>
+            <ul>
+                <li><strong>Patience and flexibility:</strong> Adjusting pace and providing multiple explanations</li>
+                <li><strong>Collaborative coding:</strong> Working through problems together</li>
+                <li><strong>Normalizing errors:</strong> Treating mistakes as learning opportunities</li>
+                <li><strong>Plain language explanations:</strong> Connecting code to familiar concepts</li>
+            </ul>
+            <div class="quote">
+                "It was helpful to practice... I also really appreciated when you explained what the code was saying [by] reading it out loud."
+            </div>
+            <div class="quote">
+                "[The instructor] made a 'bunch of numbers' actually mean something."
+            </div>
+        </div>
+
+        <!-- Slide 9: Guidelines Intro -->
+        <div class="slide">
+            <h2>Five Evidence-Based Instructional Guidelines</h2>
+            <p>Based on this research, we developed five guidelines for teaching data science to educational researchers.</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <div style="font-size: 4rem; color: #3498db;">5</div>
+                <p style="font-size: 1.5rem; color: #7f8c8d;">Research-Based Guidelines</p>
+            </div>
+            <div style="margin-top: 30px; padding: 20px; background: #e8f4f8; border-radius: 10px;">
+                These guidelines emerged from analysis of student feedback and learning outcomes, providing evidence-based recommendations for instruction.
+            </div>
+        </div>
+
+        <!-- Slide 10: Guidelines -->
+        <div class="slide">
+            <h2>Instructional Guidelines for Data Science Education</h2>
+            <div class="guidelines">
+                <div class="guideline">
+                    <h4>1. Acknowledge and Build on Prior Knowledge</h4>
+                    <p>Connect new computational methods to students' existing research experience and statistical knowledge. Avoid assumptions about their starting knowledge level.</p>
+                </div>
+                <div class="guideline">
+                    <h4>2. Use Familiar, Educational Data</h4>
+                    <p>Begin with datasets that reflect educational contexts (e.g., student assessment data, survey responses) rather than generic examples from other fields.</p>
+                </div>
+                <div class="guideline">
+                    <h4>3. Establish Clear Connections to Research Practice</h4>
+                    <p>Explicitly link each technique to educational research questions and demonstrate applications relevant to students' work contexts.</p>
+                </div>
+                <div class="guideline">
+                    <h4>4. Create Supportive Learning Environments</h4>
+                    <p>Normalize the debugging process, model problem-solving approaches, and maintain patience when students encounter difficulties.</p>
+                </div>
+                <div class="guideline">
+                    <h4>5. Balance Instruction with Guided Practice</h4>
+                    <p>Structure lessons with demonstration, collaborative work, and individual application opportunities rather than extended lectures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Conclusion -->
+        <div class="slide">
+            <h2>Implications for Instruction</h2>
+            <div class="highlight">
+                <h3>Effective data science instruction can broaden participation in educational research.</h3>
+            </div>
+            <p>This research demonstrates that thoughtful pedagogical approaches can address common barriers to learning data science among educational researchers.</p>
+            <div style="margin: 30px 0;">
+                <h3>Key findings for instructors:</h3>
+                <ul>
+                    <li>Students bring valuable research and analytical experience that can be leveraged</li>
+                    <li>Technical anxiety is a significant but addressable barrier</li>
+                    <li>Pedagogical approaches are more important than specific software choices</li>
+                    <li>Confidence can increase substantially with appropriate instructional support</li>
+                </ul>
+            </div>
+            <div style="text-align: center; margin-top: 40px; font-size: 1.3rem; color: #3498db;">
+                Instructional design can determine accessibility of data science skills in education
+            </div>
+        </div>
+
+        <!-- Slide 12: Thank You -->
+        <div class="slide">
+            <h2>Questions & Discussion</h2>
+            <div style="margin-bottom: 30px;">
+                <h3>Let's discuss:</h3>
+                <ul style="font-size: 1.2rem; line-height: 1.8;">
+                    <li>What resonates with your teaching experience?</li>
+                    <li>Which strategies will you try first?</li>
+                    <li>What additional challenges do you face with your students?</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 30px 0;">
+                <p><strong>Research Source:</strong></p>
+                <p>Willet, K. B. S., & Rosenberg, J. M. (2023). The Design and Effects of Educational Data Science Workshops for Early Career Researchers. <em>Journal of Formative Design in Learning, 7</em>(2).</p>
+                <p style="margin-top: 10px; color: #3498db;">
+                    <a href="https://doi.org/10.1007/s41686-023-00083-7" style="color: #3498db; text-decoration: none;">https://doi.org/10.1007/s41686-023-00083-7</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+            <button class="control-btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function updateSlideCounter() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentSlideIndex + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active', 'prev');
+                if (i === index) {
+                    slide.classList.add('active');
+                } else if (i < index) {
+                    slide.classList.add('prev');
+                }
+            });
+
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === totalSlides - 1;
+            
+            updateSlideCounter();
+            updateProgressBar();
+        }
+
+        function changeSlide(direction) {
+            const newIndex = currentSlideIndex + direction;
+            if (newIndex >= 0 && newIndex < totalSlides) {
+                currentSlideIndex = newIndex;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+        updateSlideCounter();
+        updateProgressBar();
+    </script>
+</body>
+</html>
