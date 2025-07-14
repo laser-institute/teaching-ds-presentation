@@ -1,8 +1,6 @@
 ---
-title: "Teaching Data Science to Educational Researchers"
-subtitle: "Evidence-Based Strategies for Effective Pedagogy"
-author: "Based on research by K. Bret Staudt Willet & Joshua M. Rosenberg"
-date: "Journal of Formative Design in Learning, Dec. 2023"
+title: "Teaching Data Science to STEM Education Scholars"
+author: "Joshua Rosenberg"
 format:
   revealjs:
     theme: default
@@ -15,15 +13,10 @@ format:
     css: styles.css
 ---
 
-## The Educational Data Context
+## Discussion
 
-Educational researchers increasingly encounter data from:
-
-- Learning Management Systems (LMS)
-- Online and distance education platforms  
-- AI-powered learning tools
-
-**Result:** Growing demand for Educational Data Science (EDS) skills
+- What challenges do you face teaching data science?
+- What challenges do (your) potential learners face?
 
 ---
 
@@ -197,8 +190,6 @@ Avoid extended lectures
 ---
 
 ## Discussion
-
-**Questions for reflection:**
 
 - What resonates with your teaching experience?
 - Which strategies will you try first?  
