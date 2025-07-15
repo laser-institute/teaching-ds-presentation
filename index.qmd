@@ -1,5 +1,5 @@
 ---
-title: "Teaching Data Science to STEM Education Scholars"
+title: "Teaching Data Science to (Complete) Newcomers"
 author: "Joshua Rosenberg"
 format:
   revealjs:
@@ -11,194 +11,213 @@ format:
     chalkboard: true
     footer: "Teaching Data Science to Educational Researchers"
     css: styles.css
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
-## Discussion
+## Purpose
 
-- What challenges do you face teaching data science?
-- What challenges do (your) potential learners face?
+-   To *discuss* the challenges of teaching learning analytics to
+    newcomers
+-   To *summarize* some research on this topic
+-   To *share some strategies* for teaching newcomers (or planning
+    courses for newcomers)
 
----
+## Quick Poll
 
-## Student Barriers
+::: {style="position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;"}
+<iframe sandbox="allow-scripts allow-same-origin allow-presentation" allowfullscreen="true" allowtransparency="true" frameborder="0" height="315" src="https://www.mentimeter.com/app/presentation/aluiehvwyrb2itfgpxaqsexcxr5wp1fh/embed" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="420">
 
-Educational researchers face challenges:
-
-- **Ethical considerations:** Privacy and consent
-- **Access limitations:** Computing resources 
-- **Technical concerns:** Coding anxiety
-
-::: {.callout-note}
-These barriers require thoughtful instructional design
+</iframe>
 :::
 
----
+## Some research
+
+![](images/design and effects.png){fig-align="center"}
 
 ## Research Questions
 
-**RQ #1:** What backgrounds, motivations, and fears do students bring?
+**RQ #1**: How do educational researchers in a doctoral program situate
+themselves with respect to data science?
 
-**RQ #2:** What pedagogical approaches build confidence and competence?
+**RQ #2**: How did the design of the workshop help educational
+researchers overcome barriers to using data science?
 
----
+------------------------------------------------------------------------
 
 ## Study Overview
 
-- **44 doctoral students** in education
-- **2 one-day workshops** using R and RStudio Cloud
-- **Pre/post surveys** + qualitative analysis
+-   **44 doctoral students** in a general educational research doctoral
+    program
+-   **2 one-day workshops** using R and RStudio (Posit) Cloud
+-   **Pre/post surveys** + qualitative analysis
 
----
+------------------------------------------------------------------------
 
-## Student Assets
+## Students want to code!
 
-::: {.columns}
-::: {.column width="50%"}
-**59%** had relevant degree
+-   Around 75% of students said they were learning R because they wanted
+    to use R/coding in their work or for their doctoral program
 
-**57%** had work experience
-:::
-::: {.column width="50%"}
-**77%** wanted new skills
+## Students have some anxieties
 
-**75%** wanted job-relevant skills
-:::
-:::
+- **84%** cited technical factors as primary concern
 
-::: {.callout-note}
-Students aren't blank slates—build on existing knowledge
-:::
+> "I really do not understand the statistical stuff. I might as well be
+> reading Russian."
 
----
+> Although having two degrees in mathematics-related fields, my
+experience with true data analysis is limited. As a classroom teacher, I analyze student data regularly, but rarely (really, never) with advanced statistical analysis
 
-## Technical Anxiety is Real
+> I am fearful I will not have enough time to fully understand the programming.
 
-**84%** cited technical factors as primary concern
-
-> "I really do not understand the statistical stuff. I might as well be reading Russian."
-
-> "Some of the programs, such as R, are a little intimidating."
-
----
+------------------------------------------------------------------------
 
 ## Confidence Growth
 
-::: {.columns}
-::: {.column width="33%"}
-**3.35**  
-Pre-workshop
-:::
-::: {.column width="33%"}
-**4.65**  
-Post-workshop  
-:::
-::: {.column width="33%"}
-**+1.30**  
-Increase
-:::
-:::
+- Students grew in confidence, even through a brief (one day) workshop
 
-Statistically significant improvement on 7-point scale
-
-::: {.callout-warning}
-**Note:** Troubleshooting confidence didn't improve
-:::
-
----
-
-## What Worked: Pedagogy
+- What Worked: Pedagogy
 
 **66%** cited pedagogical factors as workshop strength
 
-**Key strategies:**
-- Patience and flexibility  
-- Collaborative coding  
-- Normalizing errors  
-- Plain language explanations  
+**Key strategies:** 
+- Patience and flexibility\
+- Coding together
+- Normalizing errors\
+- Plain language explanations
 
----
+------------------------------------------------------------------------
 
 ## Student Feedback
 
-> "It was helpful to practice... I really appreciated when you explained what the code was saying by reading it out loud."
+> It was helpful to practice what we were doing together so we could ask questions of each other. I also really appreciated when you explained what the code was saying be reading it out loud.
 
-> "[The instructor] made a 'bunch of numbers' actually mean something."
+> Although, I didn't understand many things, [The instructor] stayed positive and never made me feel less intelligent.
 
----
+------------------------------------------------------------------------
 
-## Five Evidence-Based Guidelines
+## Guideline 1: Tailot to students' backgrounds
 
-Research-based recommendations for instruction
+- Don't teach a course for _other_ students -- get to know yours!
+- Explicitly and deliberately build confidence
+- Do this through pedagogical strategies and a supportive attitude
 
----
+------------------------------------------------------------------------
 
-## Guideline 1: Build on Prior Knowledge
+## Guideline 2: Use Familiar Data
 
-Connect computational methods to existing research experience
+Start with familiar contexts: 
 
-**Avoid** assumptions about starting knowledge
+- Student assessment data 
+- Survey responses\ 
+- Gradebook
 
----
+------------------------------------------------------------------------
 
-## Guideline 2: Use Educational Data  
+## Guideline 3: Emphasize relevance
 
-Start with familiar contexts:
-- Student assessment data
-- Survey responses  
-- Grade books
+Explicitly link techniques to: 
 
-**Not** generic datasets from other fields
-
----
-
-## Guideline 3: Connect to Research Practice
-
-Explicitly link techniques to:
-- Educational research questions
-- Students' work contexts
+- Educational research questions 
+- Students' work contexts 
 - Real applications
 
----
+------------------------------------------------------------------------
 
 ## Guideline 4: Create Supportive Environments
 
-- Normalize debugging process
-- Model problem-solving  
-- Maintain patience with difficulties
-- Make errors learning opportunities
+-   Normalize debugging process
+-   Model problem-solving\
+-   Maintain patience with difficulties
+-   Make errors learning opportunities
 
----
-
-## Guideline 5: Balance Instruction & Practice
-
-Structure lessons with:
-1. **Demonstration**
-2. **Collaborative work** 
-3. **Individual application**
-
-Avoid extended lectures
-
----
+------------------------------------------------------------------------
 
 ## Key Takeaways
 
-- Students bring valuable experience
-- Technical anxiety is addressable
-- **Pedagogy matters more than software**
-- Confidence can grow substantially
+-   Students bring valuable experiences
+-   Technical anxiety is addressable, but it requires explicit attention
+-   Pedagogy can matter greatly!
+-   Confidence can grow substantially, even over a short period
 
----
+------------------------------------------------------------------------
 
 ## Discussion
 
-- What resonates with your teaching experience?
-- Which strategies will you try first?  
-- What additional challenges do you face?
+- At some point in the future, what do you hope to teach regarding learning analytics?
 
----
+- What challenges do you anticipate -- learning-related, related to your institution, etc.?
 
-## References
+------------------------------------------------------------------------
 
-Willet, K. B. S., & Rosenberg, J. M. (2023). The Design and Effects of Educational Data Science Workshops for Early Career Researchers. *Journal of Formative Design in Learning, 7*(2).
+## Micro-Support
 
-[https://doi.org/10.1007/s41686-023-00083-7](https://doi.org/10.1007/s41686-023-00083-7)
+- You'll next see 5 different problems novices may face with R/R code
+- Your task in groups is to briefly discuss what you could _say or do_ (including nothing!), and prepare one strategy to share
+
+Here goes!
+
+```{r, include = FALSE}
+set.seed(2025)                                # for reproducibility
+
+student_data <- data.frame(
+  id     = 1:20,
+  name   = paste0("Student_", 1:20),
+  gender = sample(c("Female", "Male"), 20, replace = TRUE),
+  score  = round(runif(20, 60, 100), 1)       # 60–100, one decimal
+)
+
+# Derive letter grades
+student_data$grade <- cut(
+  student_data$score,
+  breaks  = c(0, 70, 80, 90, 100),
+  labels  = c("D", "C", "B", "A"),
+  include.lowest = TRUE,
+  right   = FALSE
+)
+
+student_data
+```
+
+## Problem 1
+
+```{r, echo = TRUE, error = TRUE}
+library(tidyverse)
+student_data <- read_csv("student-data.csv")
+studnet_data
+```
+
+## Problem 2
+
+```{r, echo = TRUE, error = TRUE}
+glimpse(student_data)
+
+filter(student_data, scores > 70)
+```
+
+## Problem 3
+
+**"I'm totally lost. I can't get my code to run, my data is ruined, and our pet's heads are falling off!"**
+
+## Problem 4
+
+*str_detect() is a function from the `stringr` package*
+
+```{r, echo = TRUE, error = TRUE}
+str_detect(student_data, gender, "Female")
+library(stringr)
+```
+
+## Discussion
+
+-   What resonates with your teaching experience?
+-   Which strategies will you try first?\
+-   What additional challenges do you face?
+
+## Reference
+
+Willet, K. B. S., & Rosenberg, J. M. (2023). The Design and Effects of
+Educational Data Science Workshops for Early Career Researchers.
+*Journal of Formative Design in Learning, 7*(2). <https://doi.org/10.1007/s41686-023-00083-7>
